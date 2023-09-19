@@ -1,0 +1,95 @@
+@import "./variavel";
+//Criando mixings
+@import "./mixins";
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: $font-principal;
+}
+
+
+
+.text-shadow {
+    text-shadow: 2px 2px 2px rgb(7, 29, 99);
+}
+
+.border-shadow {
+    border: 2px solid rgb(7, 29, 99);
+    box-shadow: 2px 2px 2px rgb(36, 32, 151);
+}
+
+
+
+.container {
+    margin: 20px;
+    background-color: $cor-fundo;
+    max-width: 950px;
+    padding: 20px;
+
+    .estrutura {
+        display: flex;
+        @include responsividade();
+
+        .box {
+            max-width: 400px;
+            border: 1px solid red;
+            border-radius: 5px;
+            margin-right: 20px;
+
+            h1 {
+                color: $cor-branco;
+                padding: 15px;
+            }
+
+            img {
+                width: 100%;
+            }
+
+            p {
+                padding: 15px;
+                color: $cor-branco;
+            }
+
+            a {
+                color: $cor-link;
+                padding: 10px;
+                text-decoration: none;
+                display: block;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+    .estrutura-card {
+        h1 {
+            padding: 15px;
+            @include titulopadrao();
+
+            @extend .text-shadow
+        }
+
+        div {
+            display: flex;
+            //Media serve para deixar essa parte do site responsivo
+            @media(max-width:566px) {
+                flex-wrap: wrap;
+            }
+            article {
+                @include circulo(150px);
+                background-color: pink;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: 20px;
+                margin-right: 15px;
+                @extend .border-shadow;
+            }
+        }
+    }
+}   

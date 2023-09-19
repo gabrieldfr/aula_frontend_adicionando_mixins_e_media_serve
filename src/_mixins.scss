@@ -1,0 +1,20 @@
+@mixin titulopadrao {
+    font-size: 22px;
+    font-weight: bold;
+    font-family: monospace;
+    color: purple;
+}
+
+
+@mixin circulo($tamanho) {
+    width: $tamanho;
+    height: $tamanho;
+    border-radius: $tamanho / 2;
+    overflow: hidden;
+}
+
+@mixin responsividade {
+    @media(max-width:566px) {
+        flex-wrap: wrap;
+    }
+}
